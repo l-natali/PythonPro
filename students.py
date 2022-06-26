@@ -20,5 +20,4 @@ st7 = Students('Sergiy', 'Maksymenko', 'male', 33)
 st8 = Students('Denis', 'Moskaev', 'male', 30)
 st9 = Students('Victor', 'Grinevich', 'male', 20)
 st10 = Students('Anatoliy', 'Shylin', 'male', 32)
-
-# print(st8.__dict__['name'])
+st11 = Students('Sergiy', 'Lukiienko', 'male', 32)

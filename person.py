@@ -1,7 +1,7 @@
 class Person:
-    def __init__(self, name, surname, sex):
-        self.name = name
-        self.surname = surname
+    def __init__(self, name: str, surname: str, sex):
+        self.name = name.strip().title()
+        self.surname = surname.strip().title()
         self.sex = sex
 
     def __str__(self):

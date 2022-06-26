@@ -6,7 +6,7 @@ class Customers:
         self.city = city
 
     def __str__(self):
-        return f'{self.name} {self.surname}\nphone number: {self.phone}\n{self.city}'
+        return f'{self.name} {self.surname}, phone number: {self.phone}, {self.city}'
 
 
 c1 = Customers('Vitaliy', 'Lysenko', '0974732386', 'Mykolaiv')
