@@ -60,3 +60,4 @@ group.add_student(st11)
 print(group, '\nCount students - ', group.count_students(), '\n\nFound students:')
 for i in group.find_student('Lukiienko'):
     print(i)
+

@@ -17,7 +17,7 @@ class Flowers:
 
 
 try:
-    f1 = Flowers('Rose', 'white', 51, 6)
+    f1 = Flowers('Rose', 'white', 51, -6)
     f2 = Flowers('Lily', 'orange', 36, '15')
     f3 = Flowers('Tulip', 'yellow', 45, 10)
 except ValueError as error:

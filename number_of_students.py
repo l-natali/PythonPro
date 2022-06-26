@@ -6,3 +6,4 @@ class NumberOfStudentsError(Exception):
 
     def __str__(self):
         return f'{self.num} {self.desc}'
+

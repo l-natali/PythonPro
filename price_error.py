@@ -5,3 +5,4 @@ class NegativeNumberError(Exception):
 
     def __str__(self):
         return f'Invalid {self.price}'
+
