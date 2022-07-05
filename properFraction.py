@@ -10,10 +10,6 @@ class ProperFraction:
     def __str__(self):
         return f'{self.x} {self.y}'
 
-    def gcd(self):
-        gc = gcd(self.x, self.y)
-        return gc
-
     def __mul__(self, other):
         if not self.y or not other.y:
             raise ZeroDivisionError
@@ -23,7 +19,9 @@ class ProperFraction:
         else:
             x = self.x * other.x
             y = self.y * other.y
-            return f'{x}/{y}'
+            y1 = y // gcd(x, y)
+            x1 = x // gcd(x, y)
+            return f'{x1}/{y1}'
 
     def __truediv__(self, other):
         if not self.y or not other.y:
@@ -34,7 +32,9 @@ class ProperFraction:
         else:
             x = self.x * other.y
             y = self.y * other.x
-            return f'{x}/{y}'
+            x1 = x // gcd(x, y)
+            y1 = y // gcd(x, y)
+            return f'{x1}/{y1}'
 
     def __add__(self, other):
         if not self.y or not other.y:
@@ -45,11 +45,15 @@ class ProperFraction:
         elif self.y == other.y:
             x = self.x + other.x
             y = self.y
-            return f'{x}/{y}'
+            x1 = x // gcd(x, y)
+            y1 = y // gcd(x, y)
+            return f'{x1}/{y1}'
         else:
             y = self.y * other.y
             x = (self.x * other.y) + (self.x * other.y)
-            return f'{x}/{y}'
+            x1 = x // gcd(x, y)
+            y1 = y // gcd(x, y)
+            return f'{x1}/{y1}'
 
     def __sub__(self, other):
         if not self.y or not other.y:
@@ -60,15 +64,19 @@ class ProperFraction:
         elif self.y == other.y:
             x = self.x - other.x
             y = self.y
-            return f'{x}/{y}'
+            x1 = x // gcd(x, y)
+            y1 = y // gcd(x, y)
+            return f'{x1}/{y1}'
         else:
             x = (self.x * other.y) - (self.x * other.y)
             y = self.y * other.y
-            return f'{x}/{y}'
+            x1 = x // gcd(x, y)
+            y1 = y // gcd(x, y)
+            return f'{x1}/{y1}'
 
 
-a = ProperFraction(3, 5)
-b = ProperFraction(1, 2)
+a = ProperFraction(12, 2)
+b = ProperFraction(3, 6)
 n = a + b
 m = a - b
 s = a * b
