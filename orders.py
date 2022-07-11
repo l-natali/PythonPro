@@ -35,13 +35,17 @@ class Order:
         self.am.append(amount)
         logger.info(f'{self.customer.name} {self.customer.surname} add {amount} {flowers.color} {flowers.name}')
 
-    def __iadd__(self, other: Flowers, amount: int):
-        if not isinstance(other, Flowers):
+    def __iadd__(self, other: Flowers):
+        if isinstance(other, Flowers):
+            self.items.append(other)
+            self.am.append(1)
+        elif isinstance(other, tuple):
+            self.items.append(other[0])
+            self.am.append(other[1])
+        else:
             raise TypeError
-        self.items.append(other)
-        self.am.append(amount)
-        logger.info(f'{self.customer.name} {self.customer.surname} add {amount} {other.color} {other.name}')
-        return self, amount
+        logger.info(f'{self.customer.name} {self.customer.surname} add {other[1]} {other[0].color} {other[0].name}')
+        return self
 
     def __isub__(self, other: Flowers):
         if not isinstance(other, Flowers):
@@ -86,11 +90,9 @@ class Order:
 if __name__ == '__main__':
     order1 = Order(c1)
     order2 = Order(c2)
-
-    order1.add_item(f1, 56)
-    order1.add_item(f2, 12)
-    order1.add_item(f1, 89)
-    order1.__iadd__(f1, 6)
+    order1 += (f1, 56)
+    order1 += (f2, 12)
+    order1 += (f1, 89)
     order1 -= f1
 
     order2.add_item(f3, 87)
