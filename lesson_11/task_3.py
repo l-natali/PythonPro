@@ -1,4 +1,4 @@
-import time
+import datetime
 
 
 class MyClass:
@@ -16,7 +16,7 @@ class MyClass:
     @x.setter
     def x(self, value):
         with open('file.txt', 'a') as f:
-            f.write(f'{time.time()} value was changed to {value}\n')
+            f.write(f'{datetime.datetime.now()} value was changed to {value}\n')
         self.__x = value
 
 

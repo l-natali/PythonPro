@@ -1,7 +1,7 @@
 def decor(cls):
     def param(*args):
-        n = input('Text - ')
-        return f'{n} {cls(*args)}'
+        return f'{param.text} {cls(*args)}'
+    param.text = input('Text - ')
     return param
 
 

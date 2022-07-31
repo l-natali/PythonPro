@@ -1,4 +1,5 @@
 import logging
+import time
 import timeit
 
 logger = logging.getLogger(__name__)
@@ -13,12 +14,13 @@ logger.addHandler(fileHandler)
 
 
 def decor(ch):
-    def func(*args):
-        num = 5
-        t = timeit.timeit('fibo(4)', number=num, setup='from __main__ import fibo')
+    def func(*args, **kwargs):
+        end = time.time()
+        t = end - start
         logger.info(f'{fibo.__name__} was called')
         logger.info(f'Time for running is {t} sec')
-        return ch(*args)
+        return ch(*args, **kwargs), t
+    start = time.time()
     return func
 
 
@@ -38,3 +40,5 @@ def fibo(n):
 
 
 print(fibo(23), fibo(6), sep='\n')
+x = fibo(5)
+

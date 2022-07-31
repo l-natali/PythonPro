@@ -1,6 +1,6 @@
 def save_to_file(str_func):
     def save(*args):
-        name = f'{MyClass.__name__}.txt'
+        name = f"{str_func.__qualname__.split('.')[0]}.txt"
         with open(name, 'a') as f:
             f.write(str_func(*args))
         return str_func(*args)

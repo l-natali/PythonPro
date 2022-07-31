@@ -1,7 +1,7 @@
 def count_func(f):
-    def counter(*args):
+    def counter(*args, **kwargs):
         counter.count += 1
-        return f(*args)
+        return f(*args, **kwargs)
     counter.count = 0
     return counter
 
