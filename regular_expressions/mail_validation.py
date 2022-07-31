@@ -11,4 +11,4 @@ def mail_validation(mail):
         return print('Invalid')
 
 
-mail_validation('_j6j@gh.bh')
+mail_validation('-j6j@gh.bh')

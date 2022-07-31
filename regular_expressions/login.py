@@ -10,4 +10,4 @@ def login(login):
         return print('Login invalid')
 
 
-login('-8')
+login('fcgn')
